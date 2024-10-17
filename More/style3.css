@@ -1,0 +1,114 @@
+.my-book-collections {
+    padding: 90px;
+    background-color: #cbbfcf;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.search-bar {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px 15px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #005bb5;
+}
+
+.genre-filter {
+    margin-bottom: 20px;
+}
+
+.genre-filter h3 {
+    color: #333;
+}
+
+.genre-filter ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.genre-filter ul li {
+    margin: 0 15px;
+}
+
+.genre-filter ul li a {
+    text-decoration: none;
+    color: #0073e6;
+}
+
+.genre-filter ul li a:hover {
+    text-decoration: underline;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.book-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.book-item:hover {
+    transform: translateY(-5px);
+}
+
+.book-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.rating {
+    display: block;
+    margin: 10px 0;
+}
+
+.status {
+    color: #666;
+    font-style: italic;
+}
+
+.review-button {
+    padding: 8px 12px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.review-button:hover {
+    background-color: #005bb5;
+}
