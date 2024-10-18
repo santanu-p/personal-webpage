@@ -35,38 +35,38 @@ const books = [
     {
         title: 'The Great Gatsby',
         author: 'F. Scott Fitzgerald',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/The_Great_Gatsby%2C_by_F._Scott_Fitzgerald%2C_1925.jpg/400px-The_Great_Gatsby%2C_by_F._Scott_Fitzgerald%2C_1925.jpg',
+        image: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1490528560i/4671.jpg',
         rating: '★★★★☆',
         status: 'Completed',
         genre: 'Fiction',
-        link: '#', // Replace with a valid link
+        link: 'https://www.planetebook.com/free-ebooks/the-great-gatsby.pdf', // Replace with a valid link
     },
     {
         title: 'Sapiens: A Brief History of Humankind',
         author: 'Yuval Noah Harari',
-        image: 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Sapiens_A_Brief_History_of_Humankind.jpg/220px-Sapiens_A_Brief_History_of_Humankind.jpg',
+        image: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1703329310i/23692271.jpg',
         rating: '★★★★★',
         status: 'Want to Read',
         genre: 'Non-Fiction',
-        link: '#', // Replace with a valid link
+        link: 'https://www.1pezeshk.com/wp-content/uploads/2019/07/Sapiens-A-Brief-History-of-Humankind.pdf', // Replace with a valid link
     },
     {
         title: 'Harry Potter and the Sorcerer\'s Stone',
         author: 'J.K. Rowling',
-        image: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Harry_Potter_and_the_Sorcerer%27s_Stone.jpg/220px-Harry_Potter_and_the_Sorcerer%27s_Stone.jpg',
+        image: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1474154022i/3.jpg',
         rating: '★★★★★',
         status: 'Reading',
         genre: 'Fantasy',
-        link: '#', // Replace with a valid link
+        link: 'https://kanpurkvcantt.wordpress.com/wp-content/uploads/2020/04/harry-potter-book-1.pdf', // Replace with a valid link
     },
     {
-        title: 'The martian',
+        title: 'The Martian',
         author: 'Andy Weir',
         image: 'https://coverart.oclc.org/ImageWebSvc/oclc/+-+0263665966_140.jpg?allowDefault=false&client=WorldcatOrgUI',
         rating: '★★★★☆',
         halfStar: true, // Indicates if there's a half star
         status: 'Reading',
-        genre: 'Fantasy',
+        genre: 'Fiction',
         link: 'https://search.worldcat.org/en/title/1140118175', // Replace with a valid link
     },
 ];
@@ -111,3 +111,66 @@ function filterBooks(genre) {
 
 // Initial call to display all books
 displayBooks();
+
+
+
+
+
+
+// Filter notes by category with animation
+function filterByCategory(category) {
+    const notes = document.querySelectorAll('.note-card');
+    const filterButtons = document.querySelectorAll('.filter-button');
+
+    // Reset active button
+    filterButtons.forEach(button => button.classList.remove('active'));
+
+    // Set active button
+    event.target.classList.add('active');
+
+    notes.forEach(note => {
+        // Fade out the note card
+        note.style.opacity = '0'; // Start fade-out
+        note.style.transition = 'opacity 0.3s'; // Smooth transition
+
+        // Wait for fade-out to finish before displaying/hiding notes
+        setTimeout(() => {
+            if (category === 'all' || note.classList.contains(category)) {
+                note.style.display = 'block'; // Show matching notes
+                requestAnimationFrame(() => {
+                    note.style.opacity = '1'; // Fade in the note
+                });
+            } else {
+                note.style.display = 'none'; // Hide non-matching notes
+            }
+        }, 300); // Delay for fade-out
+    });
+}
+
+// Search notes by title/content with animation
+function filterNotes() {
+    const input = document.getElementById('noteSearch');
+    const filter = input.value.toLowerCase();
+    const notes = document.querySelectorAll('.note-card');
+
+    notes.forEach(note => {
+        const title = note.querySelector('.note-title').textContent.toLowerCase();
+        const content = note.querySelector('.note-content').textContent.toLowerCase();
+
+        // Fade out the note card
+        note.style.opacity = '0'; // Start fade-out
+        note.style.transition = 'opacity 0.3s'; // Smooth transition
+
+        // Wait for fade-out to finish before displaying/hiding notes
+        setTimeout(() => {
+            if (title.includes(filter) || content.includes(filter)) {
+                note.style.display = 'block'; // Show matching notes
+                requestAnimationFrame(() => {
+                    note.style.opacity = '1'; // Fade in the note
+                });
+            } else {
+                note.style.display = 'none'; // Hide non-matching notes
+            }
+        }, 300); // Delay for fade-out
+    });
+}
