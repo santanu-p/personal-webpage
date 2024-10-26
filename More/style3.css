@@ -1,0 +1,460 @@
+.my-book-collections {
+    padding: 90px;
+    background-color: #cbbfcf;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.search-bar {
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 10px 15px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #005bb5;
+}
+
+.genre-filter {
+    margin-bottom: 20px;
+}
+
+.genre-filter h3 {
+    color: #333;
+}
+
+.genre-filter ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.genre-filter ul li {
+    margin: 0 15px;
+}
+
+.genre-filter ul li a {
+    text-decoration: none;
+    color: #0073e6;
+}
+
+.genre-filter ul li a:hover {
+    text-decoration: underline;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.book-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.book-item:hover {
+    transform: translateY(-5px);
+}
+
+.book-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.rating {
+    display: block;
+    margin: 10px 0;
+}
+
+.status {
+    color: #666;
+    font-style: italic;
+}
+
+.review-button {
+    padding: 8px 12px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.review-button:hover {
+    background-color: #005bb5;
+}
+
+
+
+
+
+/* My Notes section styles */
+.my-notes {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #857d73;
+}
+
+.my-notes h1 {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 80px;
+    color: #00f195;
+    letter-spacing: 2px;
+    animation: fadeInSlide 1.5s ease-in-out forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.my-notes .search-bar {
+    width: 70%;
+    padding: 8px;
+    margin: 20px auto;
+    margin-bottom: 30px;
+    font-size: 1.2em;
+    border: 2px solid #44a46c;
+    border-radius: 15px;
+    transition: border-color 0.3s ease;
+    display: block;
+    margin-top: 50px;
+}
+
+.my-notes .search-bar:focus {
+    border-color: #d636b3;
+    outline: none;
+}
+
+.filter-options {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-button {
+    padding: 8px 18px;
+    margin: 0 10px;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1.1em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.filter-button:hover {
+    background-color: #ddd;
+    transform: translateY(-2px);
+}
+
+.filter-button.active {
+    background-color: #6bd36f;
+    color: rgb(250, 250, 250);
+}
+
+.note-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+/* Note card styles */
+.note-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #fafafa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Ensure smooth transitions */
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Slide down effect */
+    animation: fadeInUp 0.5s forwards; /* Fade-in effect */
+}
+
+/* Adding hover effects for note cards */
+.note-card:hover {
+    transform: scale(1.05); /* Slightly enlarges the card */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds deeper shadow */
+}
+
+.note-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.note-content {
+    font-size: 1em;
+    color: #666;
+}
+
+/* Animation for note cards */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Keyframes for the fade and slide-in animation */
+@keyframes fadeInSlide {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); /* Starts 20px above */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Slides to its original position */
+    }
+}
+
+/* Optional hover effect to add interactivity */
+.my-notes h1:hover {
+    letter-spacing: 4px; /* Increases spacing on hover */
+    color: #bb12dc; /* Changes color on hover */
+    transition: all 0.5s ease; /* Smooth transition */
+}
+
+/* Adding a delay between note card animations */
+.note-card:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.note-card:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+/* Media Queries for mobile responsiveness */
+
+/* For screens with a max width of 768px (tablets, small screens) */
+@media (max-width: 768px) {
+    .note-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Smaller columns */
+    }
+
+    .filter-button {
+        padding: 8px 12px;
+        font-size: 0.9em; /* Smaller font for filter buttons */
+    }
+
+    .note-card {
+        padding: 12px; /* Reduced padding on smaller screens */
+    }
+
+    .note-title {
+        font-size: 1.2em; /* Smaller title for note cards */
+    }
+
+    .note-content {
+        font-size: 0.9em; /* Smaller content text */
+    }
+}
+
+/* For screens with a max width of 480px (mobile phones) */
+@media (max-width: 480px) {
+    .note-container {
+        grid-template-columns: 1fr; /* Single column layout on small screens */
+    }
+
+    h1 {
+        font-size: 1.8em;  /* Smaller heading for mobile */
+    }
+
+    .filter-button {
+        padding: 6px 10px; /* Even smaller padding for mobile */
+        font-size: 0.85em;  /* Smaller font */
+    }
+
+    .note-card {
+        padding: 10px; /* Reduced padding on small screens */
+    }
+
+    .note-title {
+        font-size: 1.1em; /* Further reduced for smaller screens */
+    }
+
+    .note-content {
+        font-size: 0.85em; /* Adjusted for mobile */
+    }
+}
+
+
+
+
+
+/*------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------------*/
+/* Fun Games Section */
+#fun-games {
+    padding: 50px;
+    background-color: #f0f4f8;
+    text-align: center;
+}
+
+#fun-games h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+    letter-spacing: 2px;
+    animation: fadeInSlide 1.5s ease-in-out forwards;
+    margin-top: 60px;
+}
+
+#fun-games p {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+.games-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.game-card h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #2a68b0;
+}
+
+.game-card p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.play-btn {
+    background-color: #2a68b0;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.play-btn:hover {
+    background-color: #21548e;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    .games-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .game-card h3 {
+        font-size: 1.5em;
+    }
+
+    .game-card p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .games-container {
+        grid-template-columns: 1fr;
+    }
+
+    .game-card {
+        padding: 15px;
+    }
+
+    .play-btn {
+        font-size: 0.9em;
+    }
+}
+
+.fun-games {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .fun-games h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .game-item {
+    margin-bottom: 40px;
+  }
+  
+  .game-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .game-item iframe {
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .game-item p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #666;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
