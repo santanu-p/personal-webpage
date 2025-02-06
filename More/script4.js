@@ -75,7 +75,6 @@ function searchFacts() {
 function changeAI() {
     // Get the selected AI option
     var selectedAI = document.getElementById("aiSelect").value;
-
     // Hide all AI divs
     var aiDivs = document.querySelectorAll(".ai-embed");
     aiDivs.forEach(function(div) {
