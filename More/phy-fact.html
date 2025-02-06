@@ -92,18 +92,13 @@
 
 <!-- Dropdown Menu for AI selection -->
 <select id="aiSelect" onchange="changeAI()">
-  <option value="chatgpt">ChatGPT</option>
   <option value="qwen">Qwen</option>
   <option value="deepseek">Deepseek</option>
 </select>
 
 <!-- Container to display the selected AI -->
 <div id="aiContainer">
-  <!-- ChatGPT Embed -->
-  <div id="chatgpt" class="ai-embed">
-      <iframe src="https://openai.com/index/chatgpt/" width="100%" height="500px"></iframe>
-  </div>
-
+  
   <!-- Qwen Embed -->
   <div id="qwen" class="ai-embed" style="display: none;">
       <iframe src="https://chat.qwenlm.ai/" width="100%" height="500px"></iframe>
