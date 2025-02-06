@@ -161,7 +161,17 @@
           <p>I have developed a strong proficiency in programming and scientific computing, enabling me to tackle complex problems in my research. My expertise in Python allows me to implement algorithms and data analysis efficiently, while C++ is my choice for high-performance computing tasks.</p>
           <p>I am also skilled in using Mathematica for symbolic computation and modeling, as well as Gnuplot for data visualization. Additionally, my command of LaTeX ensures that I can produce high-quality scientific documents and publications with ease.</p>
           <!-- Google reCAPTCHA Checkbox -->
-          <div class="g-recaptcha" data-sitekey="6LfswWIqAAAAAGFYIWCLU6CYocPoU7ta6H64JBtk" data-callback="onCaptchaSuccess"></div>
+
+<div id="captcha-container"></div>
+
+<script src="config.js"></script>
+<script>
+  let captchaDiv = document.createElement('div');
+  captchaDiv.className = "g-recaptcha";
+  captchaDiv.setAttribute("data-sitekey", RECAPTCHA_SITE_KEY);
+  captchaDiv.setAttribute("data-callback", "onCaptchaSuccess");
+  document.getElementById("captcha-container").appendChild(captchaDiv);
+</script>
           <!-- Disabled "See My CV" button initially -->
           <a href="#skills" class="btn" id="showCvBtn" disabled>See My CV</a>
         </div>
