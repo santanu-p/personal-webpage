@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('contactForm').addEventListener('submit', async function (event) {
         event.preventDefault(); // Prevent the default form submission
 
         const formData = new FormData(this);
@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        if (isTemporaryEmail(email)) {
+        // Check if email is temporary using an API
+        const isTemp = await isTemporaryEmail(email);
+        if (isTemp) {
             alert("Temporary emails are not allowed. Please use a valid email.");
             return;
         }
@@ -42,14 +44,27 @@ document.addEventListener('DOMContentLoaded', function() {
         return emailRegex.test(email);
     }
 
-    // Function to check for temporary/disposable email
-    function isTemporaryEmail(email) {
-        const tempDomains = [
-            "tempmail.com", "10minutemail.com", "guerrillamail.com", "mailinator.com", "disposablemail.com",
-            "fakeemail.com", "mailtemp.net", "sharklasers.com", "trashmail.com", "yopmail.com", "temp-mail.org"
-        ];
+    // Function to check for temporary/disposable emails using API
+    async function isTemporaryEmail(email) {
+        const emailDomain = email.split('@')[1];
 
-        const emailDomain = email.split('@')[1]; // Extract domain from email
-        return tempDomains.includes(emailDomain);
+        // Free email-checking API (returns JSON with disposable: true/false)
+        const apiURL = `https://disify.com/api/email/${email}`;
+        try {
+            const response = await fetch(apiURL);
+            const data = await response.json();
+            return data.disposable || tempDomains.includes(emailDomain.toLowerCase());
+        } catch (error) {
+            console.error("Email validation API error:", error);
+            return tempDomains.includes(emailDomain.toLowerCase());
+        }
     }
+
+    // Local list of common temporary email domains
+    const tempDomains = [
+        "tempmail.com", "10minutemail.com", "guerrillamail.com", "mailinator.com", "disposablemail.com",
+        "fakeemail.com", "mailtemp.net", "sharklasers.com", "trashmail.com", "yopmail.com",
+        "temp-mail.org", "emailondeck.com", "spambog.com", "throwawaymail.com", "maildrop.cc",
+        "getnada.com", "mytemp.email", "inboxbear.com"
+    ];
 });
