@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function isTemporaryEmail(email) {
         const tempDomains = [
             "tempmail.com", "10minutemail.com", "guerrillamail.com", "mailinator.com", "disposablemail.com",
-            "fakeemail.com", "mailtemp.net", "sharklasers.com", "trashmail.com", "yopmail.com"
+            "fakeemail.com", "mailtemp.net", "sharklasers.com", "trashmail.com", "yopmail.com", "temp-mail.org"
         ];
 
         const emailDomain = email.split('@')[1]; // Extract domain from email
