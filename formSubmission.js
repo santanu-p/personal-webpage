@@ -6,14 +6,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const email = formData.get('email').trim(); // Get email input
 
         if (!isValidEmail(email)) {
-            alert("Please enter a valid email address.");
+            alert("❌ Please enter a valid email address.");
             return;
         }
 
-        // Check if email is temporary using an API
+        // Check if email is temporary using MailCheck.ai API
         const isTemp = await isTemporaryEmail(email);
         if (isTemp) {
-            alert("Temporary emails are not allowed. Please use a valid email.");
+            alert("🚫 Temporary emails are not allowed. Please use a valid email.");
             return;
         }
 
@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => {
             if (response.ok) {
-                alert("Thanks! The form was submitted successfully.");
+                alert("✅ Thanks! The form was submitted successfully.");
                 this.reset(); // Reset the form
             } else {
-                alert("There was a problem with your submission.");
+                alert("⚠️ There was a problem with your submission.");
             }
         })
         .catch(error => {
-            alert("There was a network error. Please try again.");
+            alert("⚠️ Network error. Please try again.");
         });
     });
 
@@ -44,27 +44,23 @@ document.addEventListener('DOMContentLoaded', function () {
         return emailRegex.test(email);
     }
 
-    // Function to check for temporary/disposable emails using API
+    // Function to check for temporary/disposable emails using MailCheck.ai API
     async function isTemporaryEmail(email) {
         const emailDomain = email.split('@')[1];
 
-        // Free email-checking API (returns JSON with disposable: true/false)
-        const apiURL = `https://disify.com/api/email/${email}`;
         try {
-            const response = await fetch(apiURL);
+            const response = await fetch(`https://api.mailcheck.ai/domain/${emailDomain}`);
             const data = await response.json();
-            return data.disposable || tempDomains.includes(emailDomain.toLowerCase());
+
+            if (data.disposable) {
+                console.log(`🚫 Disposable email detected: ${emailDomain}`);
+                return true; // Temporary email detected
+            } else {
+                return false; // Safe email
+            }
         } catch (error) {
-            console.error("Email validation API error:", error);
-            return tempDomains.includes(emailDomain.toLowerCase());
+            console.error("⚠️ Email validation error:", error);
+            return false; // If API fails, assume email is safe
         }
     }
-
-    // Local list of common temporary email domains
-    const tempDomains = [
-        "tempmail.com", "10minutemail.com", "guerrillamail.com", "mailinator.com", "disposablemail.com",
-        "fakeemail.com", "mailtemp.net", "sharklasers.com", "trashmail.com", "yopmail.com",
-        "temp-mail.org", "emailondeck.com", "spambog.com", "throwawaymail.com", "maildrop.cc",
-        "getnada.com", "mytemp.email", "inboxbear.com"
-    ];
 });
