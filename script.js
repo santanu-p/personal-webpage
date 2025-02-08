@@ -470,4 +470,45 @@ window.addEventListener("scroll", function(){
       videoPlayer.load();
       videoPlayer.style.display = 'block'; // Show the video player
       videoPlayer.play();
+    };
+
+
+
+//--------------------------------------------------------------------------------------------
+//for events section
+document.addEventListener('DOMContentLoaded', function() {
+  // Select the container where the calendar will be rendered
+  var calendarEl = document.getElementById('calendar'); 
+
+  // Initialize the FullCalendar instance
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    plugins: ['dayGrid', 'interaction'], // Enable plugins like dayGrid (month view) and interaction (clicking events)
+    initialView: 'dayGridMonth', // Set initial view to month view
+    events: [
+      {
+        title: 'Webinar on Quantum Gravity',
+        start: '2025-02-15', // Event start date
+      },
+      {
+        title: 'Astrophysics Conference',
+        start: '2025-03-10', // Event start date
+      },
+      {
+        title: 'Black Hole Workshop',
+        start: '2025-01-20',
+      },
+      {
+        title: 'Cosmology Symposium',
+        start: '2024-12-05',
+      }
+    ],
+    eventClick: function(info) {
+      alert('Event: ' + info.event.title + '\nStart: ' + info.event.start.toLocaleString());
     }
+  });
+
+  // Render the calendar in the container
+  calendar.render(); 
+});
+
+

@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" media="print" onload="this.media='all'">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print" onload="this.media='all'">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.css" rel="stylesheet" media="print" onload="this.media='all'">
   </head>
   <body>
 
@@ -243,7 +244,51 @@
           </div>
         </div>
       </div>
+
+      <!-- Events Section -->
+      <div class="events-subsection">
+        <h2 class="subsection-title">Events</h2>
+
+        <div class="events-container">
+            <!-- Upcoming Events -->
+            <div class="events-group">
+                <h3>Upcoming Events</h3>
+                <ul id="upcoming-events">
+                    <li>📅 Feb 15, 2025 - Webinar on Quantum Gravity</li>
+                    <li>📅 Mar 10, 2025 - Astrophysics Conference</li>
+                </ul>
+            </div>
+
+            <!-- Past Events -->
+            <div class="events-group">
+                <h3>Past Events</h3>
+                <ul id="past-events">
+                    <li>✅ Jan 20, 2025 - Black Hole Workshop</li>
+                    <li>✅ Dec 5, 2024 - Cosmology Symposium</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Events Calendar -->
+        <section class="calendar">
+          <h2>Event Calendar</h2>
+          <iframe src="https://calendar.google.com/calendar/embed?height=400&wkst=1&ctz=Asia%2FKolkata&showPrint=0&src=ZW4tZ2IuaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%230B8043" style="border:solid 1px #777" width="600" height="400" frameborder="0" scrolling="no"></iframe>
+       </section>
+       
+
+        <!-- Subscribe Button -->
+        <section class="events-subscribe">
+          <p>Subscribe for Event Updates!!!!</p>
+          <p>Get notified when new events are added.</p>
+          <form id="subscribe-form">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit" id="subscribe-btn">Subscribe</button>
+          </form>
+          <p id="subscribe-message"></p>
+      </section>          
+    </div>
     </section>
+    
 
     <section class="work" id="work">
       <div class="title reveal">
@@ -587,7 +632,7 @@
       </div>
    </footer>
    
-
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js"></script>
    <script src="script.js" charset="utf-8" defer></script>
    <script src="formSubmission.js" charset="utf-8" defer></script>
   </body>

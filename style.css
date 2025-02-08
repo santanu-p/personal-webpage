@@ -1377,3 +1377,92 @@ body{
 
 
 
+/*for events subsection*/
+.subsection-title {
+  text-align: center;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.events-subsection {
+  margin-top: 50px;
+  padding: 30px;
+  background: #e0f7fa;
+  border-radius: 10px;
+}
+
+.events-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.events-group {
+  width: 45%;
+  padding: 10px;
+}
+
+.events-group ul {
+  list-style: none;
+  padding: 0;
+}
+
+.events-group ul li {
+  background: #ffffff;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-shadow: 1px 1px 8px rgba(0,0,0,0.1);
+}
+
+#calendar {
+  margin: 30px auto;
+  max-width: 900px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+}
+
+.events-subscribe {
+  text-align: center;
+  margin-top: 30px;
+  padding: 20px;
+  background: #f4f4f4;
+  border-radius: 10px;
+}
+
+.events-subscribe input {
+  padding: 10px;
+  width: 250px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.events-subscribe button {
+  padding: 10px 15px;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.events-subscribe button:hover {
+  background: #0056b3;
+}
+
+#subscribe-message {
+  margin-top: 10px;
+  font-weight: bold;
+  color: green;
+}
+
+.calendar {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
