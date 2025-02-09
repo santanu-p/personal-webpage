@@ -1486,8 +1486,9 @@ body{
 }
 
 /* Ensure better scaling on small screens */
-@media (max-width: 600px) {
-  .calendar-container {
-    padding-top: 100%; /* Adjust aspect ratio for smaller screens */
+@media (max-width: 768px) {
+  .calendar {
+    display: none; /* Hide calendar on screens smaller than 768px */
   }
 }
+
