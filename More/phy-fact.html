@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Santanu Pradhan | Personal Webpage</title>
+    <meta name="description" content="Santanu Pradhan's portfolio showcasing skills in physics, research, and science communication. Learn about his academic achievements and research interests in physics, including black holes, string theory, gravitational waves, and cosmology.">
+    <meta name="keywords" content="Santanu Pradhan, Santanu Pradhan IIT Indore, portfolio, profile, physicist, astrophysics, high-energy physics, research, black holes, gravitational waves, cosmology, PhD, string theory, science communication">
+    <meta name="author" content="Santanu Pradhan">
+    <!-- Open Graph Meta Tags -->
+     <meta property="og:title" content="Santanu Pradhan | Aspiring Physicist and Research Scholar">
+     <meta property="og:description" content="Explore the academic journey and research interests of Santanu Pradhan, a physicist specializing in astrophysics, high-energy physics, string theory and science communication.">
+     <meta property="og:image" content="https://raw.githubusercontent.com/santanu-p/personal-webpage/main/images/profile.jpg">
+     <meta property="og:url" content="https://santanu-p.github.io/personal-webpage/"> <!-- Replace with your actual website URL -->
+     <meta property="og:type" content="website">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Santanu Pradhan",
+  "url": "https://santanu-p.github.io/personal-webpage/",
+  "sameAs": [
+    "https://www.linkedin.com/in/p-santanu/",
+    "https://github.com/santanu-p"
+  ],
+  "jobTitle": "Physicist, Research Scholar",
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "IIT Indore"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "IIT Indore"
+  },
+  "knowsAbout": [
+    "Astrophysics", "Black Holes", "Gravitational Waves", "High-Energy Physics", "Quantum Gravity", "String Theory"
+  ]
+}
+</script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style2.css" media="print" onload="this.media='all'">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" media="print" onload="this.media='all'">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print" onload="this.media='all'">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' media="print" onload="this.media='all'">
+    <script src="https://unpkg.com/rss-parser/dist/rss-parser.min.js"></script>
+  </head>
+  <body>
+
+    <div class="scrollToTop-btn">
+      <i class="fas fa-angle-up"></i>
+    </div>
+
+    <header>
+      <a href="#" class="brand">Santanu</a>
+      <div class="menu-btn"></div>
+      <div class="navigation">
+        <a href="../index.html#main">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#skills">Skills</a>
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#hobbies">Hobbies</a>
+        <a href="../index.html#gallery">Gallery</a>
+        <a href="../index.html#contact">Contact</a>
+        </a>
+        <!-- Updated "More" Dropdown Menu with an icon -->
+        <div class="dropdown">
+          <a href="#" class="dropdown-btn" id="more-btn">
+              More <i class="fas fa-chevron-right" id="caret-icon"></i>
+          </a>
+          <div class="dropdown-content" id="dropdown-menu">
+              <a href="my-books.html">My Book Collections</a>
+              <a href="my-notes.html">My Notes</a>
+              <a href="sci-news.html">Science News</a>
+              <a href="phy-fact.html">Physics Facts</a>
+              <a href="fun-game.html">Fun Games</a>
+          </div>
+      </div>
+      </div>
+    </header>
+
+    
+
+
+<div class="phy-fact">
+  <h1>Physics Facts</h1>
+
+<!-- Dropdown Menu for AI selection -->
+<select id="aiSelect" onchange="changeAI()">
+  <option value="qwen">Qwen</option>
+  <option value="deepseek">Deepseek</option>
+</select>
+
+<!-- Container to display the selected AI -->
+<div id="aiContainer">
+  
+  <!-- Qwen Embed -->
+  <div id="qwen" class="ai-embed" style="display: block;">
+      <iframe src="https://chat.qwenlm.ai/" width="100%" height="500px"></iframe>
+  </div>
+
+  <!-- Deepseek Embed -->
+  <div id="deepseek" class="ai-embed" style="display: none;">
+      <iframe src="https://www.deepseek.com/" width="100%" height="500px"></iframe>
+  </div>
+</div>
+
+
+
+
+  <!-- Search Bar -->
+<div class="search-container1">
+    <input type="text" id="searchFacts" placeholder="Search Physics Facts..." class="search-bar1" onkeyup="searchFacts()">
+</div>
+
+<!-- Featured Facts Section -->
+<section class="featured-facts">
+    <h2>Featured Facts</h2>
+    <div class="fact-cards">
+        <div class="fact-card">
+            <p>Fact 1: Did you know that a teaspoon of a neutron star weighs as much as all of humanity combined?</p>
+        </div>
+        <div class="fact-card">
+            <p>Fact 2: Time slows down the closer you move to the speed of light, according to Einstein’s theory of relativity.</p>
+        </div>
+        <div class="fact-card">
+            <p>Fact 3: Black holes aren’t actually holes but incredibly dense objects with immense gravitational pull!</p>
+        </div>
+    </div>
+</section>
+
+<!-- Random Fact Generator -->
+<section class="random-fact">
+    <h2>Random Physics Fact</h2>
+    <div class="random-fact-container">
+        <p id="random-fact">Click the button to generate a random physics fact!</p>
+        <button id="random-fact-btn">Generate Random Fact</button>
+    </div>    
+</section>
+
+<!-- Interactive Facts Section -->
+<section class="interactive-facts">
+    <h2>Interactive Physics Facts</h2>
+    <div class="interactive-grid">
+        <div class="interactive-item" onclick="showFact('quantum')">Quantum Mechanics</div>
+        <div class="interactive-item" onclick="showFact('gravity')">Gravity</div>
+        <div class="interactive-item" onclick="showFact('blackholes')">Black Holes</div>
+        <div class="interactive-item" onclick="showFact('relativity')">Relativity</div>
+    </div>
+</section>
+</div>
+
+
+
+
+
+
+
+
+
+      
+  
+
+
+    <footer class="footer">
+      <div class="footer-left">
+      <span class="footer-title">Santanu Pradhan</span>
+      <p>Copyright @2024 by Santanu | All Rights Reserved.</p>
+      </div>
+      <div class="footer-right">
+      <p>You are visitor number: 
+        <span id="visitor-count">
+            <!-- Visitor Counter Code from hitwebcounter -->
+          <img src="https://hitwebcounter.com/counter/counter.php?page=16842525&style=0025&nbdigits=5&type=page&initCount=5000" Alt="Visit counter For Websites"   border="0" />
+        </span>
+      </p>
+      </div>
+   </footer>
+   
+
+   <script src="../script.js" charset="utf-8" defer></script>
+   <script src="script4.js" charset="utf-8" defer></script>
+
+  </body>
+</html>
+
+
