@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <title>Santanu Pradhan | Personal Webpage</title>
+    <meta name="description" content="Santanu Pradhan's portfolio showcasing skills in physics, research, and science communication. Learn about his academic achievements and research interests in physics, including black holes, string theory, gravitational waves, and cosmology.">
+    <meta name="keywords" content="Santanu Pradhan, Santanu Pradhan IIT Indore, portfolio, profile, physicist, astrophysics, high-energy physics, research, black holes, gravitational waves, cosmology, PhD, string theory, science communication">
+    <meta name="author" content="Santanu Pradhan">
+    <!-- Open Graph Meta Tags -->
+     <meta property="og:title" content="Santanu Pradhan | Aspiring Physicist and Research Scholar">
+     <meta property="og:description" content="Explore the academic journey and research interests of Santanu Pradhan, a physicist specializing in astrophysics, high-energy physics, string theory and science communication.">
+     <meta property="og:image" content="https://raw.githubusercontent.com/santanu-p/personal-webpage/main/images/profile.jpg">
+     <meta property="og:url" content="https://santanu-p.github.io/personal-webpage/"> <!-- Replace with your actual website URL -->
+     <meta property="og:type" content="website">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Santanu Pradhan",
+  "url": "https://santanu-p.github.io/personal-webpage/",
+  "sameAs": [
+    "https://www.linkedin.com/in/p-santanu/",
+    "https://github.com/santanu-p"
+  ],
+  "jobTitle": "Physicist, Research Scholar",
+  "worksFor": {
+    "@type": "CollegeOrUniversity",
+    "name": "IIT Indore"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "IIT Indore"
+  },
+  "knowsAbout": [
+    "Astrophysics", "Black Holes", "Gravitational Waves", "High-Energy Physics", "Quantum Gravity", "String Theory"
+  ]
+}
+</script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="More/style2.css" media="print" onload="this.media='all'">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" media="print" onload="this.media='all'">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' media="print" onload="this.media='all'">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  </head>
+  <body>
+
+    <div class="scrollToTop-btn">
+      <i class="fas fa-angle-up"></i>
+    </div>
+
+    <header>
+      <a href="#" class="brand">Santanu</a>
+      <div class="menu-btn"></div>
+      <div class="navigation">
+        <a href="#main">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+        <!-- Updated "More" Dropdown Menu with an icon -->
+        <div class="dropdown">
+          <a href="#" class="dropdown-btn" id="more-btn">
+              More <i class="fas fa-chevron-right" id="caret-icon"></i>
+          </a>
+          <div class="dropdown-content" id="dropdown-menu">
+              <a href="More/my-books.html">My Book Collections</a>
+              <a href="More/my-notes.html">My Notes</a>
+              <a href="More/sci-news.html">Science News</a>
+              <a href="More/phy-fact.html">Physics Facts</a>
+              <a href="More/fun-game.html">Fun Games</a>
+          </div>
+      </div>
+      </div>
+    </header>
+
+    <section class="main" id="main">
+      <video class="bg-video" src="videos/vid.mp4" autoplay muted loop playsinline></video>
+      <div class="background"></div> <!-- New div for the background image -->
+      <div class="content">
+        <h2>Hello, I'm<br><span>Santanu Pradhan</span></h2>
+        <div class="animated-text">
+          <h3>Physicist</h3>
+          <h3>Research Scholar!</h3>
+          <h3>Science Communicator</h3>
+        </div>
+        <a href="#work" class="btn">See My Work</a>
+        <div class="media-icons">
+          <a href="https://github.com/santanu-p" aria-label="View Santanu Pradhan's GitHub Profile"><i class='bx bxl-github'></i></a>
+          <a href="mailto:psantanu293@gmail.com" aria-label="Email Santanu Pradhan"><i class='bx bxs-envelope'></i></a>
+          <a href="https://linkedin.com/in/p-santanu" aria-label="View Santanu Pradhan's LinkedIn Profile"><i class='bx bxl-linkedin'></i></a>
+        </div>
+      </div>
+      <div class="floating-weather-box" id="weather-box">
+        <p id="weather-info">Loading weather...</p>
+      </div>      
+    </section>
+
+    <section class="about" id="about">
+      <div class="title reveal">
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="content">
+        <div class="column col-left reveal">
+          <div class="img-card">
+            <img src="images/s_profile.webp" loading="lazy" alt="santanu pradhan">
+          </div>
+        </div>
+        <div class="column col-right reveal">
+          <h2 class="content-title">Hey There! I'm Santanu Pradhan</h2>
+          <p class="paragraph-text">I am a Physicist, Research Scholar, and Science Communicator passionate about exploring the mysteries of the universe. With a strong academic foundation from IIT Indore, my research delves into astrophysics, gravitational waves, string theory, quantum gravity and black hole dynamics. I aim to contribute to high-energy physics and cosmology while sharing knowledge through public outreach and science communication.</p>
+          <a href="#educationModal" class="btn" id="learnMoreBtn">Learn More About Me</a>
+      </div>
+      
+      <!-- Modal for Education Details -->
+      <div id="educationModal" class="modal">
+          <div class="modal-content">
+              <span class="close-btn">&times;</span>
+              <h2>Education</h2>
+              
+              <div class="education-item">
+                  <h4>M.Sc. in Physics</h4>
+                  <p class="institution">Indian Institute of Technology (IIT) Indore, India</p>
+                  <p class="duration">2022–2024</p>
+                  <p class="details">Focused on black hole dynamics, gravitational waves, string theory and quantum gravity.</p>
+              </div>
+      
+              <div class="education-item">
+                  <h4>B.Sc. in Physics</h4>
+                  <p class="institution">Ramakrishna Mission Residential College(Autonomous), West Bengal, India</p>
+                  <p class="duration">2019–2022</p>
+                  <p class="details">Graduated with distinction. Conducted research in particle physics and cosmology. Secured several academic awards and honors.</p>
+              </div>
+      
+              <div class="education-item">
+                  <h4>HSE (Higher Secondary Education)</h4>
+                  <p class="institution">Lalat Gangadhar Pathsala High School, West Bengal, India</p>
+                  <p class="duration">2017–2019</p>
+                  <p class="details">Achieved the top rank in district-level exams. Awarded multiple merit scholarships for academic excellence.</p>
+              </div>
+          </div>
+      </div>
+      
+    </section>
+
+    <section class="skills" id="skills">
+      <div class="title reveal">
+        <h2 class="section-title">My Skills</h2>
+      </div>
+      <div class="content">
+        <div class="column col-left reveal">
+          <h2 class="content-title">My Skills and Experiences</h2>
+          <p>I have developed a strong proficiency in programming and scientific computing, enabling me to tackle complex problems in my research. My expertise in Python allows me to implement algorithms and data analysis efficiently, while C++ is my choice for high-performance computing tasks.</p>
+          <p>I am also skilled in using Mathematica for symbolic computation and modeling, as well as Gnuplot for data visualization. Additionally, my command of LaTeX ensures that I can produce high-quality scientific documents and publications with ease.</p>
+          <!-- Google reCAPTCHA Checkbox -->
+
+<div class="g-recaptcha" data-sitekey="6LfswWIqAAAAAGFYIWCLU6CYocPoU7ta6H64JBtk" data-callback="onCaptchaSuccess"></div>
+          <!-- Disabled "See My CV" button initially -->
+          <a href="#skills" class="btn" id="showCvBtn" disabled>See My CV</a>
+        </div>
+        <div class="column col-right reveal">
+          <div class="bar">
+            <div class="info">
+              <span>Python</span>
+              <span>90%</span>
+            </div>
+            <div class="line python"></div>
+          </div>
+          <div class="bar">
+            <div class="info">
+              <span>C++</span>
+              <span>70%</span>
+            </div>
+            <div class="line c"></div>
+          </div>
+          <div class="bar">
+            <div class="info">
+              <span>Mathematica</span>
+              <span>65%</span>
+            </div>
+            <div class="line mathematica"></div>
+          </div>
+          <div class="bar">
+            <div class="info">
+              <span>Gnuplot</span>
+              <span>80%</span>
+            </div>
+            <div class="line gnuplot"></div>
+          </div>
+          <div class="bar">
+            <div class="info">
+              <span>LATEX</span>
+              <span>95%</span>
+            </div>
+            <div class="line latex"></div>
+          </div>
+        </div>
+      </div>
+   
+ 
+
+<!-- Modal for CV -->
+<div id="cvModal" class="modal">
+  <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>My CV</h2>
+      <iframe src="cv/cv.pdf" frameborder="0" width="100%" height="550px"></iframe>
+  </div>
+</div>
+</section>
+
+    <section class="services" id="services">
+      <div class="title reveal">
+        <h2 class="section-title">My Services</h2>
+        <p> Open to PhD opportunities focusing on Astrophysics, High-Energy Physics, and Particle <span class="animate-letters" id="animated-text"> Physics.</span>
+        </p>
+      </div>
+      <div class="content">
+        <div class="card reveal">
+          <div class="service-icon">
+            <i class='bx bx-search-alt'></i>
+          </div>
+          <div class="info">
+            <h3>Advanced Physics Research</h3>
+            <p>Seeking to contribute advanced insights in astrophysics, high-energy physics, and cosmology to deepen our understanding of the universe.</p>
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="service-icon">
+            <i class='bx bxs-help-circle'></i>
+          </div>
+          <div class="info">
+            <h3>Collaboration Opportunities</h3>
+            <p>Open to collaborations in astrophysics, high-energy physics, and related fields, offering fresh insights and research expertise.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Events Section -->
+      <div class="events-subsection">
+        <h2 class="subsection-title">Events</h2>
+
+        <div class="events-container">
+            <!-- Upcoming Events -->
+            <div class="events-group">
+                <h3>Upcoming Events</h3>
+                <ul id="upcoming-events">
+                    <li>📅 Feb 15, 2025 - Webinar on Quantum Gravity</li>
+                    <li>📅 Mar 10, 2025 - Astrophysics Conference</li>
+                </ul>
+            </div>
+
+            <!-- Past Events -->
+            <div class="events-group">
+                <h3>Past Events</h3>
+                <ul id="past-events">
+                    <li>✅ Jan 20, 2025 - Black Hole Workshop</li>
+                    <li>✅ Dec 5, 2024 - Cosmology Symposium</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Events Calendar -->
+        <section class="calendar">
+          <h2>Event Calendar</h2>
+          <iframe src="https://calendar.google.com/calendar/embed?height=350&wkst=1&ctz=Asia%2FKolkata&showPrint=0&showTitle=0&showCalendars=0&src=cHNhbnRhbnUyOTNAZ21haWwuY29t&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=aHQzamxmYWFjNWxmZDYyNjN1bGZoNHRxbDhAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%2333B679&color=%23D50000&color=%23C0CA33" style="border:solid 1px #777" width="500" height="350" frameborder="0" scrolling="no"></iframe>
+       </section>
+       
+
+        <!-- Subscribe Button -->
+        <section class="events-subscribe">
+          <p>Subscribe for Event Updates!!!!</p>
+          <p>Get notified when new events are added.</p>
+          <form id="subscribe-form">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit" id="subscribe-btn">Subscribe</button>
+          </form>
+          <p id="subscribe-message"></p>
+      </section>          
+    </div>
+    </section>
+    
+
+    <section class="work" id="work">
+      <div class="title reveal">
+        <h2 class="section-title">My Work</h2>
+      </div>
+      <div class="work-container">
+          <div class="work-box">
+              <img src="images/qnm.jpeg" loading="lazy" alt="Quasi Normal Mode Calculation">
+              <div class="work-layer">
+                  <h4>A Study of Quasi-Normal Modes of Different Kinds of Black Holes</h4>
+                  <p>
+
+                    Calculated Quasi-Normal Modes (QNMs) for Kerr Black Holes using a novel technique which I formulated, comparing results with Leaver's method, 
+                    and investigated Kerr-Sen Black Holes to establish a relationship between shadow radius and quasi-normal frequencies. 
+                    Currently working on QNMs for Kerr-Newman Black Holes and presented findings at a seminar hosted by the Physics Department at IIT Indore for my MSc thesis.</p>
+                  <a href="research/thesis.pdf" target="_blank" aria-label="Download MSc Thesis by Santanu Pradhan"><i class='bx bx-link-external'></i></a>
+              </div>
+          </div>
+          <div class="work-box">
+              <img src="images/black_hole.webp" loading="lazy" alt="AdS/CFT correspondence and properties of anti de sitter black holes">
+              <div class="work-layer">
+                  <h4>Properties of Anti De Sitter Black Holes</h4>
+                  <p>Studied AdS/CFT correspondence, black hole thermodynamics, holographic duality, string theory connection to QCD and the physics of D-branes. Calculated hydrodynimics and perturbations of anti de sitter black holes in d-dimension.
+                   Currently exploring finite-temperature field theory correlation functions and anti-de Sitter black holes, with all work presented in a seminar at IIT Indore.</p>
+                  <a href="research/work 2.pdf" target="_blank" aria-label="Download project Report by Santanu Pradhan"><i class='bx bx-link-external'></i></a>
+              </div>
+          </div>
+          <div class="work-box">
+              <img src="images/Unruh-Effect.webp" loading="lazy" alt="Unruh radiation and Quantum field theory" >
+              <div class="work-layer">
+                  <h4>Unruh Radiation</h4>
+                  <p>Explored General Relativity, Cosmology, and Black Holes, performing calculations in Quantum Field Theory (QFT) in curved spacetime. Presented findings at a seminar organized by the Physics Department, IIT Indore.</p>
+                  <a href="research/SP_report.pdf" target="_blank" aria-label="Download Report 2 by Santanu Pradhan"><i class='bx bx-link-external'></i></a>
+              </div>
+          </div>
+          <div class="work-box">
+              <img src="images/work4.webp" loading="lazy" alt="work under progress">
+              <div class="work-layer">
+                  <h4>Project Under Development</h4>
+                  <p>This project will be updated soon!!!</p>
+              </div>
+          </div>
+      </div>
+  </section>    
+
+  <section class="hobbies" id="hobbies">
+    <h2 class="heading">My <span>Hobbies</span></h2>
+    <div class="hobbies-container">
+        <div class="hobby-card">
+          <i class='bx bxs-cricket-ball'></i>
+            <h4>Playing Cricket</h4>
+            <p>I enjoy playing cricket as a way to stay active and challenge myself both physically and mentally.</p>
+        </div>
+        <div class="hobby-card">
+          <i class='bx bx-football' ></i>
+            <h4>Kicking It on the Field</h4>
+            <p>I love playing football, relishing the teamwork and strategy that make every match exciting.</p>
+        </div>
+        <div class="hobby-card">
+          <i class='fas fa-golf-ball'></i>
+            <h4>Teeing Off</h4>
+            <p>I enjoy playing golf, appreciating the blend of precision, strategy, and the tranquility of the course.</p>
+        </div>
+        <div class="hobby-card">
+          <i class='fab fa-playstation'></i>
+            <h4>Gamer at Heart</h4>
+            <p>I enjoy gaming on my PlayStation, diving into exciting stories and challenges.</p>
+        </div>
+        <div class="hobby-card">
+          <i class='bx bx-walk' ></i>
+            <h4>Outdoor Strolls</h4>
+            <p>I enjoy taking long walks in natural surroundings, recharging myself during weekends.</p>
+        </div>
+        <div class="hobby-card">
+            <i class='bx bx-book'></i>
+            <h4>Lover of Science Literature</h4>
+            <p>I enjoy reading biology and physics to expand my knowledge.</p>
+        </div>
+        <div class="hobby-card">
+          <i class='fas fa-headphones' id="music-icon" style="cursor: pointer;"></i>
+          <h4>Musical Tastes</h4>
+          <p>I enjoy K-pop and hip-hop for their catchy rhythms.</p>
+          <!-- Dropdown to select playlist -->
+    <div>
+        <label for="playlist-select"><strong>Select Playlist:</strong></label>
+        <select id="playlist-select">
+            <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DXcZDD7cfEKhW">K-pop Hits</option>
+            <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DX0XUsuxWHRQd">Hip-hop Classics</option>
+            <option value="https://open.spotify.com/embed/playlist/37i9dQZF1DXcRXFNfZr7Tp">Chill Vibes</option>
+            <option value="https://open.spotify.com/embed/playlist/37i9dQZF1E4nqrwpUzdAQS">Favourites</option>
+        </select>
+    </div>
+
+    <!-- Embedded Music Player -->
+    <div id="music-player-container">
+      <iframe id="music-player" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcZDD7cfEKhW" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" loading="lazy"></iframe>
+    </div>
+    <!-- Show what user last listened -->
+    <div id="last-listened" style="margin-top: 1rem;"></div>
+      </div>
+      <div class="hobby-card">
+        <i class='bx bx-movie-play'></i>
+        <h4>Movie Buff</h4>
+        <p>I love exploring the emotional depth of K-dramas and the thrilling adventures of sci-fi movies.</p>
+    </div>
+    </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <h2 class="heading">Gallery <span>Section</span></h2>
+
+  <!-- Dropdown Menu -->
+  <div class="dropdown1">
+    <button class="dropdown-btn1">Gallery</button>
+    <div class="dropdown-content1">
+      <a href="#gallery-images">Images</a>
+      <a href="#gallery-videos">Videos</a>
+    </div>
+  </div>
+  
+  <!-- Gallery Images Section -->
+  <div class="gallery-container" id="gallery-images">
+
+    <div class="gallery-box">
+      <img src="images/work6.jpg" loading="lazy" alt="Research Presentation" class="imageToShare">
+      <div class="gallery-layer">
+        <h4>Research Presentation</h4>
+        <p>Seminar on Quasi Normal Modes of Black Holes.</p>
+        </div>
+        <div class="gallery-info">
+          <!-- View icon and count -->
+        <span class="view-icon">
+          <i class="fa fa-eye"></i> 
+        <span class="views-count">1221</span>
+        </span>
+        <span class="like-icon">
+          <i class='bx bxs-like'></i> <span class="like-count">753</span>
+        </span>
+        <span class="share">
+          Share: <span class="shareButton">🔗</span>
+      </span>
+        </div>
+    </div>
+    <div class="gallery-box">
+      <img src="images/work5.jpg" loading="lazy" alt="Project Exhibition" class="imageToShare">
+      <div class="gallery-layer">
+        <h4>Project Exhibition</h4>
+        <p>Presented work on AdS/CFT correspondence.</p>
+      </div>
+        <div class="gallery-info">
+            <!-- View icon and count -->
+        <span class="view-icon">
+          <i class="fa fa-eye"></i> 
+        <span class="views-count">905</span>
+        </span>
+        <span class="like-icon">
+          <i class='bx bxs-like'></i> <span class="like-count">729</span>
+        </span>
+        <span class="share">
+          Share: <span class="shareButton">🔗</span>
+      </span>
+        </div>
+    </div>
+    <div class="gallery-box">
+      <img src="images/work4.webp" loading="lazy" alt="Group Study" class="imageToShare">
+      <div class="gallery-layer">
+        <h4>Group Study</h4>
+        <p>Collaborative research sessions with peers.</p>
+      </div>
+        <div class="gallery-info">
+            <!-- View icon and count -->
+        <span class="view-icon">
+          <i class="fa fa-eye"></i> 
+        <span class="views-count">1503</span>
+        </span>
+        <span class="like-icon">
+          <i class='bx bxs-like'></i> <span class="like-count">1208</span>
+        </span>
+        <span class="share">
+          Share: <span class="shareButton">🔗</span>
+      </span>
+        </div>
+    </div>
+    
+    <!-- Additional Gallery Items (Initially Hidden) -->
+    <div class="gallery-box hidden">
+      <img src="images/work1.jpg" loading="lazy" alt="Conference Attendance" class="imageToShare">
+      <div class="gallery-layer">
+        <h4>Conference Attendance</h4>
+        <p>Attending the International Physics Conference.</p>
+      </div>
+        <div class="gallery-info">
+            <!-- View icon and count -->
+        <span class="view-icon">
+          <i class="fa fa-eye"></i> 
+        <span class="views-count">478</span>
+        </span>
+        <span class="like-icon">
+          <i class='bx bxs-like'></i> <span class="like-count">368</span>
+        </span>
+        <span class="share">
+          Share: <span class="shareButton">🔗</span>
+      </span>
+        </div>
+    </div>
+    <div class="gallery-box hidden">
+      <img src="images/work2.jpg" loading="lazy" alt="Outdoor Research" class="imageToShare">
+      <div class="gallery-layer">
+        <h4>Outdoor Research</h4>
+        <p>Field research in astrophysics.</p>
+      </div>
+        <div class="gallery-info">
+            <!-- View icon and count -->
+        <span class="view-icon">
+          <i class="fa fa-eye"></i> 
+        <span class="views-count">209</span>
+        </span>
+        <span class="like-icon">
+          <i class='bx bxs-like'></i> <span class="like-count">154</span>
+        </span>
+        <span class="share">
+          Share: <span class="shareButton">🔗</span>
+      </span>
+        </div>
+    </div>
+  </div>
+
+<!-- Gallery Videos Section (Hidden by default) -->
+<div class="gallery-container hidden" id="gallery-videos">
+  <div class="gallery-box1">
+    <video width="320" height="240" controls loading="lazy">
+      <source src="videos/vid1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <!-- Video Caption Below -->
+    <div class="video-caption"></div>
+  </div>
+
+  <!-- Additional videos here -->
+  <div class="gallery-box1">
+    <video width="320" height="240" controls loading="lazy">
+      <source src="videos/vid1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <!-- Video Caption Below -->
+    <div class="video-caption"></div>
+  </div>
+
+</div>
+
+  <!-- Buttons for See More and Collapse -->
+  <div class="button-container">  
+    <button id="seeMoreBtn">See More</button>
+    <button id="collapseBtn" class="hidden">Collapse</button>
+  </div>
+</section>
+   
+  
+
+    <section class="contact" id="contact">
+      <div class="title reveal">
+        <h2 class="section-title">Contact Me</h2>
+      </div>
+      <div class="content">
+        <div class="row">
+          <div class="card reveal">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info">
+              <h3>Address</h3>
+              <a href="https://www.google.com/maps/place/21%C2%B058'56.7%22N+87%C2%B027'54.1%22E/@21.982403,87.465032,15z/data=!4m4!3m3!8m2!3d21.9824167!4d87.4650278?entry=ttu&g_ep=EgoyMDI0MTAwNy4xIKXMDSoASAFQAw%3D%3D" target="_blank">Kolkata, India</a>
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="info">
+              <h3>Phone</h3>
+              <a href="tel:+918101983739">+91 8101 983 739</a> <!-- Replace with your phone number -->
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info">
+              <h3>Email Address</h3>
+              <a href="mailto:psantanu293@gmail.com">psantanu293@gmail.com</a> <!-- Replace with your email -->
+            </div>
+          </div>
+          <div class="card reveal">
+            <div class="contact-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <div class="info">
+              <h3>Website</h3>
+              <a href="https://bit.ly/santanu-pradhan" target="_blank">bit.ly/santanu-pradhan</a> <!-- Replace with your website -->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="contact-form reveal">
+            <h3>Send Message</h3>
+            <form id="contactForm" method="POST"> <!-- Replace with your Formspree URL -->
+            <div class="input-box">
+              <input type="text" name="name" value="" placeholder="Name" required>
+            </div>
+            <div class="input-box">
+              <input type="text" name="email" value="" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+              <textarea name="message" rows="8" cols="80" placeholder="Message" required></textarea>
+            </div>
+            <div class="input-box">
+              <input type="submit" class="send-btn" name="" value="Send">
+            </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section> 
+  
+
+<!-- Include the Google reCAPTCHA script -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <footer class="footer">
+      <div class="footer-left">
+      <span class="footer-title">Santanu Pradhan</span>
+      <p>Copyright &copy; 2024 by Santanu | All Rights Reserved.</p>
+      </div>
+      <div class="footer-right">
+      <p>You are visitor number: 
+        <span id="visitor-count">
+            <!-- Visitor Counter Code from hitwebcounter -->
+          <img src="https://hitwebcounter.com/counter/counter.php?page=16842525&style=0025&nbdigits=5&type=page&initCount=5000" Alt="Visit counter For Websites" border="0" />
+        </span>
+      </p>
+      </div>
+   </footer>
+   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.11.3/main.min.js"></script>
+   <script src="script.js" charset="utf-8" defer></script>
+   <script src="formSubmission.js" charset="utf-8" defer></script>
+  </body>
+</html>
+
+
