@@ -473,30 +473,3 @@ window.addEventListener("scroll", function(){
     };
 
 
-
-//--------------------------------------------------------------------------------------------
-//for events section
-document.getElementById("subscribe-form").addEventListener("submit", function (event) {
-  event.preventDefault();
-
-  let email = document.getElementById("email").value;
-  if (!email) {
-      document.getElementById("subscribe-message").textContent = "Please enter a valid email.";
-      return;
-  }
-
-  fetch("https://script.google.com/macros/s/AKfycbxVZX5BgJ-OZiuamEtD_GrKoU8iHUJnqJ29I_ANlpjqvKKW8WxtalWZnVM8uot4BD3uVw/exec", {
-      method: "POST",
-      mode: "no-cors",  // Prevents CORS issues
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: email })
-  })
-  .then(() => {
-      document.getElementById("subscribe-message").textContent = "Subscribed successfully!";
-      document.getElementById("email").value = "";
-  })
-  .catch(error => {
-      console.error("Subscription Error:", error);
-      document.getElementById("subscribe-message").textContent = "An error occurred. Please try again.";
-  });
-});
