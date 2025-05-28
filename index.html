@@ -254,19 +254,13 @@
             <!-- Upcoming Events -->
             <div class="events-group">
                 <h3>Upcoming Events</h3>
-                <ul id="upcoming-events">
-                    <li>📅 Feb 15, 2025 - Webinar on Quantum Gravity</li>
-                    <li>📅 Mar 10, 2025 - Astrophysics Conference</li>
-                </ul>
+                <ul id="upcoming-events"></ul>
             </div>
 
             <!-- Past Events -->
             <div class="events-group">
                 <h3>Past Events</h3>
-                <ul id="past-events">
-                    <li>✅ Jan 20, 2025 - Black Hole Workshop</li>
-                    <li>✅ Dec 5, 2024 - Cosmology Symposium</li>
-                </ul>
+                <ul id="past-events"></ul>
             </div>
         </div>
 
@@ -614,6 +608,29 @@
       </div>
     </section> 
   
+<script>
+  const sheetURL = 'https://opensheet.vercel.app/1DUz7dYzwqqI-h6JWjjyIRUHHQbbAVRC7PIRkwnO-p5U/Events';
+
+  fetch(sheetURL)
+    .then(response => response.json())
+    .then(data => {
+      const upcoming = document.getElementById("upcoming-events");
+      const past = document.getElementById("past-events");
+
+      data.forEach(event => {
+        const li = document.createElement("li");
+        const emoji = event.Status.toLowerCase() === 'upcoming' ? '📅' : '✅';
+        li.textContent = `${emoji} ${event.Date} - ${event.Title}`;
+
+        if (event.Status.toLowerCase() === "upcoming") {
+          upcoming.appendChild(li);
+        } else {
+          past.appendChild(li);
+        }
+      });
+    });
+</script>
+
 
 <!-- Include the Google reCAPTCHA script -->
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
