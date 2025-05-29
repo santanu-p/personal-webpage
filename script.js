@@ -485,7 +485,7 @@ document.getElementById("subscribe-form").addEventListener("submit", function (e
       return;
   }
 
-  fetch("https://script.google.com/macros/s/AKfycbxVZX5BgJ-OZiuamEtD_GrKoU8iHUJnqJ29I_ANlpjqvKKW8WxtalWZnVM8uot4BD3uVw/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzMq7K7wCDbntdoBskiwXvBQnxhqUjFJ-sQLNGalpQgErGPZN4lFHlvAkEIEGG1W_mo9w/exec", {
       method: "POST",
       mode: "no-cors",  // Prevents CORS issues
       headers: { "Content-Type": "application/json" },
