@@ -486,11 +486,12 @@ document.getElementById("subscribe-form").addEventListener("submit", function (e
   }
 
   fetch("https://script.google.com/macros/s/AKfycbzMq7K7wCDbntdoBskiwXvBQnxhqUjFJ-sQLNGalpQgErGPZN4lFHlvAkEIEGG1W_mo9w/exec", {
-      method: "POST",
-      mode: "no-cors",  // Prevents CORS issues
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: email })
-  })
+  method: "POST",
+  mode: "no-cors",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ email: email })
+})
+
   .then(() => {
       document.getElementById("subscribe-message").textContent = "Subscribed successfully!";
       document.getElementById("email").value = "";
