@@ -84,3 +84,37 @@ function changeAI() {
     // Display the selected AI
     document.getElementById(selectedAI).style.display = "block";
 }
+
+
+
+const tagButtons = document.querySelectorAll('.tag-btn');
+    const videoItems = document.querySelectorAll('.video-item');
+    let activeTags = [];
+
+    tagButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        button.classList.toggle('active');
+        const tag = button.dataset.tag;
+
+        if (button.classList.contains('active')) {
+          activeTags.push(tag);
+        } else {
+          activeTags = activeTags.filter(t => t !== tag);
+        }
+
+        filterVideos();
+      });
+    });
+
+    function filterVideos() {
+      videoItems.forEach(video => {
+        const videoTags = video.dataset.tags.split(' ');
+        const matches = activeTags.every(tag => videoTags.includes(tag));
+
+        if (matches || activeTags.length === 0) {
+          video.classList.remove('hidden');
+        } else {
+          video.classList.add('hidden');
+        }
+      });
+    }
