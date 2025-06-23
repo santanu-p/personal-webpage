@@ -11,7 +11,7 @@ body {
 #video-picks {
   padding: 60px 20px 40px;
   text-align: center;
-  background: linear-gradient(135deg, #eef2f3, #ffffff);
+  background: linear-gradient(to right, #fbc2eb, #a6c1ee);
 }
 
 #video-picks h1 {
@@ -20,7 +20,7 @@ body {
   margin-bottom: 30px;
   color: #222;
   animation: fadeInDown 1s ease;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 /* --- Tag Filter Buttons --- */
@@ -54,7 +54,7 @@ body {
 /* --- Video Gallery --- */
 #video-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 25px;
   padding: 0 10px;
 }
