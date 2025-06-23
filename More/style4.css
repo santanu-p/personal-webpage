@@ -95,8 +95,8 @@ iframe {
   }
 }
 
-/* --- Responsive Fixest --- */
-@media (min-width: 768px) and (max-width: 1024px) {
+/* --- Responsive Fixes --- */
+@media (max-width: 1024px) {
   #video-picks h1 {
     font-size: 2rem;
   }
