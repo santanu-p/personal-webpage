@@ -80,19 +80,14 @@
     <section id="video-picks">
   <h1>🎥 My Video Picks</h1>
   <div id="tag-filter">
-    <button class="tag-btn" data-tag="fun">#Fun</button>
-    <button class="tag-btn" data-tag="educational">#Educational</button>
-    <button class="tag-btn" data-tag="favorites">#Favorites</button>
-    <button class="tag-btn" data-tag="documentary">#Documentary</button>
-    <button class="tag-btn" data-tag="lecture">#Lecture</button>
-    <button class="tag-btn" data-tag="experiment">#Experiment</button>
-    <button class="tag-btn" data-tag="science">#Science</button>
-    <button class="tag-btn" data-tag="astronomy">#Astronomy</button>
-    <button class="tag-btn" data-tag="quantum">#Quantum</button>
-    <button class="tag-btn" data-tag="inspiring">#Inspiring</button>
-    <button class="tag-btn" data-tag="ai">#AI</button>
+    <!--Here google sheet will fetch tags-->
   </div>
-
+<button id="clear-tags" style="margin:10px; padding:6px 12px; border:none; border-radius:6px; background:#f44336; color:white; cursor:pointer;">Clear All Tags</button>
+  <select id="sort-options" style="margin-left:10px; padding:6px; margin-bottom: 50px;">
+    <option value="default">Sort by: Default</option>
+    <option value="newest">Newest First</option>
+    <option value="oldest">Oldest First</option>
+  </select>
   <div id="video-gallery">
     <!--Here google sheet will fetch videos-->
   </div>
