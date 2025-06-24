@@ -88,33 +88,98 @@ function changeAI() {
 
 
 const tagButtons = document.querySelectorAll('.tag-btn');
-    const videoItems = document.querySelectorAll('.video-item');
-    let activeTags = [];
+let activeTags = [];
 
-    tagButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        button.classList.toggle('active');
-        const tag = button.dataset.tag;
+tagButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    button.classList.toggle('active');
+    const tag = button.dataset.tag;
 
-        if (button.classList.contains('active')) {
-          activeTags.push(tag);
-        } else {
-          activeTags = activeTags.filter(t => t !== tag);
+    if (button.classList.contains('active')) {
+      activeTags.push(tag);
+    } else {
+      activeTags = activeTags.filter(t => t !== tag);
+    }
+
+    filterVideos();
+  });
+});
+
+function filterVideos() {
+  const videoItems = document.querySelectorAll('.video-item'); // <- Moved here to update live
+  videoItems.forEach(video => {
+    const videoTags = (video.dataset.tags || "").split(' ');
+    const matches = activeTags.every(tag => videoTags.includes(tag));
+
+    if (matches || activeTags.length === 0) {
+      video.classList.remove('hidden');
+    } else {
+      video.classList.add('hidden');
+    }
+  });
+}
+
+
+
+
+    async function loadVideos() {
+  const sheetID = '1DUz7dYzwqqI-h6JWjjyIRUHHQbbAVRC7PIRkwnO-p5U';
+  const sheetName = 'Videos'; // Make sure this matches your tab name
+  const query = encodeURIComponent('SELECT A, B');
+  const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}&tq=${query}`;
+
+  try {
+    const response = await fetch(url);
+    const text = await response.text();
+    const json = JSON.parse(text.substring(47).slice(0, -2));
+    const rows = json.table.rows;
+
+    const container = document.getElementById('video-gallery');
+    container.innerHTML = ""; // Clear existing content
+
+    rows.forEach(row => {
+      const tags = row.c[0]?.v || '';
+      const link = row.c[1]?.v || '';
+      let embedLink = "";
+
+      if (!link) return;
+
+      try {
+        const parsedURL = new URL(link);
+
+        // 1. YouTube watch?v=abc123
+        if (parsedURL.hostname.includes("youtube.com") && parsedURL.searchParams.get("v")) {
+          const videoID = parsedURL.searchParams.get("v");
+          embedLink = `https://www.youtube.com/embed/${videoID}`;
         }
 
-        filterVideos();
-      });
+        // 2. youtu.be/abc123
+        else if (parsedURL.hostname === "youtu.be") {
+          const videoID = parsedURL.pathname.substring(1); // remove leading /
+          embedLink = `https://www.youtube.com/embed/${videoID}`;
+        }
+
+        // 3. Already an embed link or from another platform (Vimeo, mp4, etc.)
+        else {
+          embedLink = link;
+        }
+
+        // Fallback check
+        if (!embedLink.startsWith("http")) return;
+
+        const item = document.createElement('div');
+        item.className = 'video-item';
+        item.setAttribute('data-tags', tags);
+        item.innerHTML = `<iframe src="${embedLink}" allowfullscreen></iframe>`;
+        container.appendChild(item);
+      } catch (e) {
+        console.warn("Invalid video URL:", link);
+      }
     });
 
-    function filterVideos() {
-      videoItems.forEach(video => {
-        const videoTags = video.dataset.tags.split(' ');
-        const matches = activeTags.every(tag => videoTags.includes(tag));
+  } catch (error) {
+    console.error('Error loading videos:', error);
+  }
+}
 
-        if (matches || activeTags.length === 0) {
-          video.classList.remove('hidden');
-        } else {
-          video.classList.add('hidden');
-        }
-      });
-    }
+document.addEventListener('DOMContentLoaded', loadVideos);
