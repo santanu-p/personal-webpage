@@ -117,20 +117,34 @@ function changeAI() {
         if (!link) return;
 
         let embedLink = "";
-        try {
-          const parsedURL = new URL(link);
-          if (parsedURL.hostname.includes("youtube.com") && parsedURL.searchParams.get("v")) {
-            const videoID = parsedURL.searchParams.get("v");
-            embedLink = `https://www.youtube.com/embed/${videoID}`;
-          } else if (parsedURL.hostname === "youtu.be") {
-            const videoID = parsedURL.pathname.substring(1);
-            embedLink = `https://www.youtube.com/embed/${videoID}`;
-          } else {
-            embedLink = link;
-          }
-        } catch {
-          embedLink = link;
-        }
+try {
+  const parsedURL = new URL(link);
+
+  if (parsedURL.hostname.includes("youtube.com")) {
+    const videoID = parsedURL.searchParams.get("v");
+    const playlistID = parsedURL.searchParams.get("list");
+
+    if (playlistID && !videoID) {
+      // 🎬 Playlist only
+      embedLink = `https://www.youtube.com/embed/videoseries?list=${playlistID}`;
+    } else if (videoID) {
+      // 🎥 Video (with or without playlist)
+      embedLink = `https://www.youtube.com/embed/${videoID}`;
+    } else {
+      embedLink = link;
+    }
+
+  } else if (parsedURL.hostname === "youtu.be") {
+    const videoID = parsedURL.pathname.substring(1);
+    embedLink = `https://www.youtube.com/embed/${videoID}`;
+  } else {
+    embedLink = link;
+  }
+
+} catch {
+  embedLink = link;
+}
+
 
         allVideos.push({ tags, embedLink, index });
 
