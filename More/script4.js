@@ -31,11 +31,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
 // Interactive Facts Display
 function showFact(topic) {
     let factText;
-    switch(topic) {
+    switch (topic) {
         case 'quantum':
             factText = "Quantum mechanics is the study of very small particles, like electrons and photons.";
             break;
@@ -58,7 +57,7 @@ function showFact(topic) {
 function searchFacts() {
     const input = document.getElementById('searchFacts').value.toLowerCase();
     const cards = document.querySelectorAll('.fact-card');
-    
+
     cards.forEach(card => {
         const fact = card.textContent.toLowerCase();
         if (fact.includes(input)) {
@@ -88,138 +87,145 @@ function changeAI() {
 
 
 
-  let activeTags = [];
-  let allVideos = [];
+let activeTags = [];
+let allVideos = [];
 
-  async function loadVideos() {
+async function loadVideos() {
     const sheetID = '1DUz7dYzwqqI-h6JWjjyIRUHHQbbAVRC7PIRkwnO-p5U';
     const sheetName = 'Videos';
     const query = encodeURIComponent('SELECT A, B');
     const url = `https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?sheet=${sheetName}&tq=${query}`;
 
     try {
-      const response = await fetch(url);
-      const text = await response.text();
-      const json = JSON.parse(text.substring(47).slice(0, -2));
-      const rows = json.table.rows.slice(1); // Skip header row
+        const response = await fetch(url);
+        const text = await response.text();
+        const json = JSON.parse(text.substring(47).slice(0, -2));
+        const rows = json.table.rows.slice(1); // Skip header row
 
-      const container = document.getElementById('video-gallery');
-      const tagFilter = document.getElementById('tag-filter');
-      const tagSet = new Map();
+        const container = document.getElementById('video-gallery');
+        const tagFilter = document.getElementById('tag-filter');
+        const tagSet = new Map();
 
-      container.innerHTML = '';
-      tagFilter.innerHTML = '';
-      allVideos = []; // reset
+        container.innerHTML = '';
+        tagFilter.innerHTML = '';
+        allVideos = []; // reset
 
-      rows.forEach((row, index) => {
-        const tags = row.c[0]?.v.toLowerCase() || '';
-        const link = row.c[1]?.v || '';
-        if (!link) return;
+        rows.forEach((row, index) => {
+            const tags = row.c[0]?.v.toLowerCase() || '';
+            const link = row.c[1]?.v || '';
+            if (!link) return;
 
-        let embedLink = "";
-try {
-  const parsedURL = new URL(link);
+            let embedLink = "";
+            try {
+                const parsedURL = new URL(link);
 
-  if (parsedURL.hostname.includes("youtube.com")) {
-    const videoID = parsedURL.searchParams.get("v");
-    const playlistID = parsedURL.searchParams.get("list");
+                if (parsedURL.hostname.includes("youtube.com")) {
+                    const videoID = parsedURL.searchParams.get("v");
+                    const playlistID = parsedURL.searchParams.get("list");
 
-    if (playlistID && !videoID) {
-      // 🎬 Playlist only
-      embedLink = `https://www.youtube.com/embed/videoseries?list=${playlistID}`;
-    } else if (videoID) {
-      // 🎥 Video (with or without playlist)
-      embedLink = `https://www.youtube.com/embed/${videoID}`;
-    } else {
-      embedLink = link;
-    }
+                    if (playlistID && !videoID) {
+                        // 🎬 Playlist only
+                        embedLink = `https://www.youtube.com/embed/videoseries?list=${playlistID}`;
+                    } else if (videoID) {
+                        // 🎥 Video (with or without playlist)
+                        embedLink = `https://www.youtube.com/embed/${videoID}`;
+                    } else {
+                        embedLink = link;
+                    }
 
-  } else if (parsedURL.hostname === "youtu.be") {
-    const videoID = parsedURL.pathname.substring(1);
-    embedLink = `https://www.youtube.com/embed/${videoID}`;
-  } else {
-    embedLink = link;
-  }
+                } else if (parsedURL.hostname === "youtu.be") {
+                    const videoID = parsedURL.pathname.substring(1);
+                    embedLink = `https://www.youtube.com/embed/${videoID}`;
+                } else {
+                    embedLink = link;
+                }
 
-} catch {
-  embedLink = link;
-}
+            } catch {
+                embedLink = link;
+            }
 
 
-        allVideos.push({ tags, embedLink, index });
+            allVideos.push({
+                tags,
+                embedLink,
+                index
+            });
 
-        tags.split(' ').forEach(tag => {
-          if (!tag) return;
-          tagSet.set(tag, (tagSet.get(tag) || 0) + 1);
+            tags.split(' ').forEach(tag => {
+                if (!tag) return;
+                tagSet.set(tag, (tagSet.get(tag) || 0) + 1);
+            });
         });
-      });
 
-      // Create tag filter buttons
-      tagSet.forEach((count, tag) => {
-        const btn = document.createElement('button');
-        btn.className = 'tag-btn';
-        btn.textContent = `#${tag} (${count})`;
-        btn.dataset.tag = tag;
-        btn.addEventListener('click', () => {
-          btn.classList.toggle('active');
-          if (btn.classList.contains('active')) {
-            activeTags.push(tag);
-          } else {
-            activeTags = activeTags.filter(t => t !== tag);
-          }
-          filterVideos();
+        // Create tag filter buttons
+        tagSet.forEach((count, tag) => {
+            const btn = document.createElement('button');
+            btn.className = 'tag-btn';
+            btn.textContent = `#${tag} (${count})`;
+            btn.dataset.tag = tag;
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('active');
+                if (btn.classList.contains('active')) {
+                    activeTags.push(tag);
+                } else {
+                    activeTags = activeTags.filter(t => t !== tag);
+                }
+                filterVideos();
+            });
+            tagFilter.appendChild(btn);
         });
-        tagFilter.appendChild(btn);
-      });
 
-      renderVideos(allVideos);
+        renderVideos(allVideos);
 
     } catch (err) {
-      console.error("Error loading data:", err);
+        console.error("Error loading data:", err);
     }
-  }
+}
 
-  function renderVideos(videos) {
+function renderVideos(videos) {
     const container = document.getElementById('video-gallery');
     container.innerHTML = '';
-    videos.forEach(({ tags, embedLink }) => {
-      const item = document.createElement('div');
-      item.className = 'video-item';
-      item.setAttribute('data-tags', tags);
-      item.innerHTML = `<iframe src="${embedLink}" allowfullscreen></iframe>`;
-      container.appendChild(item);
+    videos.forEach(({
+        tags,
+        embedLink
+    }) => {
+        const item = document.createElement('div');
+        item.className = 'video-item';
+        item.setAttribute('data-tags', tags);
+        item.innerHTML = `<iframe src="${embedLink}" allowfullscreen></iframe>`;
+        container.appendChild(item);
     });
     filterVideos();
-  }
+}
 
-  function filterVideos() {
+function filterVideos() {
     const videoItems = document.querySelectorAll('.video-item');
     videoItems.forEach(video => {
-      const videoTags = (video.dataset.tags || '').split(' ');
-      const matches = activeTags.every(tag => videoTags.includes(tag));
-      if (activeTags.length === 0 || matches) {
-        video.classList.remove('hidden');
-      } else {
-        video.classList.add('hidden');
-      }
+        const videoTags = (video.dataset.tags || '').split(' ');
+        const matches = activeTags.every(tag => videoTags.includes(tag));
+        if (activeTags.length === 0 || matches) {
+            video.classList.remove('hidden');
+        } else {
+            video.classList.add('hidden');
+        }
     });
-  }
+}
 
-  document.getElementById('clear-tags').addEventListener('click', () => {
+document.getElementById('clear-tags').addEventListener('click', () => {
     activeTags = [];
     document.querySelectorAll('.tag-btn').forEach(btn => btn.classList.remove('active'));
     filterVideos();
-  });
+});
 
-  document.getElementById('sort-options').addEventListener('change', e => {
+document.getElementById('sort-options').addEventListener('change', e => {
     const value = e.target.value;
     let sorted = [...allVideos];
     if (value === 'newest') {
-      sorted.reverse();
+        sorted.reverse();
     } else if (value === 'oldest') {
-      sorted.sort((a, b) => a.index - b.index);
+        sorted.sort((a, b) => a.index - b.index);
     }
     renderVideos(sorted);
-  });
+});
 
-  document.addEventListener('DOMContentLoaded', loadVideos);
+document.addEventListener('DOMContentLoaded', loadVideos);
