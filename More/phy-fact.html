@@ -93,6 +93,7 @@
 
 <!-- Dropdown Menu for AI selection -->
 <select id="aiSelect" onchange="changeAI()">
+  <option value="my-ai">My AI</option>
   <option value="grok">Grok</option>
   <option value="qwen">Qwen</option>
   <option value="deepseek">Deepseek</option>
@@ -100,7 +101,10 @@
 
 <!-- Container to display the selected AI -->
 <div id="aiContainer">
-  
+  <!-- my-ai Embed -->
+  <div id="my-ai" class="ai-embed" style="display: block;">
+      <iframe src="https://my-ai-drab-theta.vercel.app/" width="100%" height="500px"></iframe>
+  </div>
   <!-- Qwen Embed -->
   <div id="qwen" class="ai-embed" style="display: none;">
       <iframe src="https://chat.qwenlm.ai/" width="100%" height="500px"></iframe>
@@ -112,7 +116,7 @@
   </div>
 
   <!-- Grok Embed -->
-  <div id="grok" class="ai-embed" style="display: block;">
+  <div id="grok" class="ai-embed" style="display: none;">
       <iframe src="https://shorturl.at/i9yZK" width="100%" height="500px"></iframe>
   </div>
 </div>
