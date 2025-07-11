@@ -103,65 +103,43 @@
 <div id="aiContainer">
   <!-- my-ai Embed -->
   <div id="my-ai-1" class="ai-embed" style="display: block;">
-      <iframe src="https://my-ai-drab-theta.vercel.app/" width="100%" height="500px"></iframe>
+      <iframe data-src="https://my-ai-drab-theta.vercel.app/" width="100%" height="500px"></iframe>
   </div>
   <!-- Qwen Embed -->
   <div id="qwen" class="ai-embed" style="display: none;">
-      <iframe src="https://chat.qwenlm.ai/" width="100%" height="500px"></iframe>
+      <iframe data-src="https://chat.qwenlm.ai/" width="100%" height="500px"></iframe>
   </div>
 
   <!-- Deepseek Embed -->
   <div id="deepseek" class="ai-embed" style="display: none;">
-      <iframe src="https://www.deepseek.com/" width="100%" height="500px"></iframe>
+      <iframe data-src="https://www.deepseek.com/" width="100%" height="500px"></iframe>
   </div>
 
   <!-- Grok Embed -->
   <div id="my-ai-2" class="ai-embed" style="display: none;">
-      <iframe src="https://my-ai-chatbot-gold.vercel.app/" width="100%" height="500px"></iframe>
+      <iframe data-src="https://my-ai-chatbot-gold.vercel.app/" width="100%" height="500px"></iframe>
   </div>
 </div>
 
 
 
 
-  <!-- Search Bar -->
-<div class="search-container1">
-    <input type="text" id="searchFacts" placeholder="Search Physics Facts..." class="search-bar1" onkeyup="searchFacts()">
-</div>
 
-<!-- Featured Facts Section -->
-<section class="featured-facts">
-    <h2>Featured Facts</h2>
-    <div class="fact-cards">
-        <div class="fact-card">
-            <p>Fact 1: Did you know that a teaspoon of a neutron star weighs as much as all of humanity combined?</p>
-        </div>
-        <div class="fact-card">
-            <p>Fact 2: Time slows down the closer you move to the speed of light, according to Einstein’s theory of relativity.</p>
-        </div>
-        <div class="fact-card">
-            <p>Fact 3: Black holes aren’t actually holes but incredibly dense objects with immense gravitational pull!</p>
-        </div>
-    </div>
-</section>
+<script async src="https://cse.google.com/cse.js?cx=27e41baa13cfd4662"></script>
+<div class="gcse-search"></div>
 
-<!-- Random Fact Generator -->
+
+<!-- Random Fact Generator (Embedded via iframe) -->
 <section class="random-fact">
-    <h2>Random Physics Fact</h2>
+    <h2>🔭 Random Physics Fact</h2>
     <div class="random-fact-container">
-        <p id="random-fact">Click the button to generate a random physics fact!</p>
-        <button id="random-fact-btn">Generate Random Fact</button>
-    </div>    
-</section>
-
-<!-- Interactive Facts Section -->
-<section class="interactive-facts">
-    <h2>Interactive Physics Facts</h2>
-    <div class="interactive-grid">
-        <div class="interactive-item" onclick="showFact('quantum')">Quantum Mechanics</div>
-        <div class="interactive-item" onclick="showFact('gravity')">Gravity</div>
-        <div class="interactive-item" onclick="showFact('blackholes')">Black Holes</div>
-        <div class="interactive-item" onclick="showFact('relativity')">Relativity</div>
+        <iframe 
+            src="https://cosmic-queries.vercel.app" 
+            width="100%" 
+            height="500px" 
+            style="border: 2px solid #ccc; border-radius: 12px;"
+            title="Random Physics Fact"
+        ></iframe>
     </div>
 </section>
 </div>
@@ -181,13 +159,13 @@
     <footer class="footer">
       <div class="footer-left">
       <span class="footer-title">Santanu Pradhan</span>
-      <p>Copyright @2024 by Santanu | All Rights Reserved.</p>
+      <p>Copyright &copy; 2024 by Santanu | All Rights Reserved.</p>
       </div>
       <div class="footer-right">
       <p>You are visitor number: 
         <span id="visitor-count">
             <!-- Visitor Counter Code from hitwebcounter -->
-          <img src="https://hitwebcounter.com/counter/counter.php?page=16842525&style=0025&nbdigits=5&type=page&initCount=5000" Alt="Visit counter For Websites"   border="0" />
+          <img src="https://hitwebcounter.com/counter/counter.php?page=16842525&style=0025&nbdigits=5&type=page&initCount=5000" Alt="Visit counter For Websites" border="0" />
         </span>
       </p>
       </div>
