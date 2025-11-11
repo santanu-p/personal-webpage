@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lecture Notes</title>
+<style>
+body {font-family: Arial; max-width: 800px; margin:40px auto; padding:10px;}
+h1 {margin-bottom:20px;}
+.note {margin:8px 0;}
+a {text-decoration:none; color:#0066cc;}
+a:hover {text-decoration:underline;}
+</style>
+</head>
+<body>
+<h1>QFT Lecture Notes</h1>
+<div id="list"></div>
+<p><a href="../../my-notes.html">← Back</a></p>
+<script>
+const files = [
+  'PHY685_Lecture1_2e2d6183-7c7d-4a06-865a-560bbe2249b3.pdf',
+  'lecture2.pdf',
+  // add all exact PDF filenames here
+];
+const list = document.getElementById('list');
+files.forEach(f=>{
+  const div=document.createElement('div');
+  div.className='note';
+  div.innerHTML = `<a href="${f}" target="_blank" rel="noopener">${f.replace('.pdf','')}</a>`;
+  list.appendChild(div);
+});
+</script>
+</body>
+</html>
