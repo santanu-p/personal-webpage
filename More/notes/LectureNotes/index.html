@@ -1,49 +1,362 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
+
 <head>
-<meta charset="UTF-8">
-<title>Lecture Notes</title>
-<style>
-body {font-family: Arial; max-width: 800px; margin:40px auto; padding:10px;}
-h1 {margin-bottom:20px;}
-.note {margin:8px 0;}
-a {text-decoration:none; color:#0066cc;}
-a:hover {text-decoration:underline;}
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="robots" content="index, follow">
+    <title>QFT Lecture Notes | Santanu Pradhan</title>
+    <meta name="description" content="Quantum Field Theory lecture notes by Santanu Pradhan covering fundamental concepts and advanced topics.">
+    <meta name="keywords" content="QFT, Quantum Field Theory, Physics Lectures, Santanu Pradhan, Lecture Notes">
+    <meta name="author" content="Santanu Pradhan">
+    <meta property="og:title" content="QFT Lecture Notes | Santanu Pradhan">
+    <meta property="og:description" content="Comprehensive Quantum Field Theory lecture notes">
+    <meta property="og:image" content="https://raw.githubusercontent.com/santanu-p/personal-webpage/main/images/profile.jpg">
+    <meta property="og:url" content="https://santanu-p.github.io/personal-webpage/">
+    <meta property="og:type" content="website">
+    
+    <link rel="stylesheet" href="../../../style.css">
+    <link rel="stylesheet" href="../../style2.css">
+    <link rel="stylesheet" href="../../style3.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="../../../favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    
+    <style>
+        .lecture-notes-section {
+            min-height: 100vh;
+            padding: 120px 20px 60px;
+            background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+        }
+        
+        .lecture-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .lecture-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .lecture-header h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .lecture-header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .search-filter-section {
+            margin-bottom: 30px;
+        }
+        
+        .lecture-search {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px 20px;
+            font-size: 1em;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .lecture-search:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .lectures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .lecture-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .lecture-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .lecture-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+        
+        .lecture-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .lecture-icon {
+            font-size: 3em;
+            color: #e74c3c;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .lecture-number {
+            font-size: 0.85em;
+            color: #667eea;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .lecture-card a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.15em;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .lecture-card:hover a {
+            color: #667eea;
+        }
+        
+        .lecture-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+            font-size: 0.9em;
+            color: #888;
+        }
+        
+        .lecture-meta i {
+            color: #667eea;
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+        
+        .back-button:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .lecture-header h1 {
+                font-size: 2em;
+            }
+            
+            .lectures-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-<h1>QFT Lecture Notes</h1>
-<div id="list"></div>
-<p><a href="../../my-notes.html">← Back</a></p>
-<script>
-const files = [
-  'Lecture1.pdf',
-  'Lecture2.pdf',
-  'Lecture3.pdf',
-  'Lecture4.pdf',
-  'Lecture5.pdf',
-  'Lecture6.pdf',
-  'Lecture7.pdf',
-  'Lecture8.pdf',
-  'Lecture9_10.pdf',
-  'Lecture11.pdf',
-  'Lecture12+13.pdf',
-  'Lecture14.pdf',
-  'Lecture15.pdf',
-  'Lecture16.pdf',
-  'Lecture17.pdf',
-  'Lecture18.pdf',
-  'Lecture19.pdf',
-  'Lecture20.pdf',
-  // add all exact PDF filenames here
-];
-const list = document.getElementById('list');
-files.forEach(f=>{
-  const div=document.createElement('div');
-  div.className='note';
-  div.innerHTML = `<a href="${f}" target="_blank" rel="noopener">${f.replace('.pdf','')}</a>`;
-  list.appendChild(div);
-});
-</script>
+    <div class="scrollToTop-btn"><i class="fas fa-angle-up"></i></div>
+    
+    <header>
+        <a href="#" class="brand">Santanu</a>
+        <div class="menu-btn"></div>
+        <div class="navigation">
+            <a href="../../../index.html#main">Home</a>
+            <a href="../../../index.html#about">About</a>
+            <a href="../../../index.html#skills">Skills</a>
+            <a href="../../../index.html#services">Services</a>
+            <a href="../../../index.html#work">Work</a>
+            <a href="../../../index.html#hobbies">Hobbies</a>
+            <a href="../../../index.html#gallery">Gallery</a>
+            <a href="../../../index.html#contact">Contact</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-btn" id="more-btn">More<i class="fas fa-chevron-right" id="caret-icon"></i></a>
+                <div class="dropdown-content" id="dropdown-menu">
+                    <a href="../../my-books.html">My Book Collections</a>
+                    <a href="../../my-notes.html">My Notes</a>
+                    <a href="../../sci-news.html">Science News</a>
+                    <a href="../../phy-fact.html">Physics Facts</a>
+                    <a href="../../fun-game.html">Fun Games</a>
+                    <a href="../../video-picks.html">My Video Picks</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="lecture-notes-section">
+        <div class="lecture-container">
+            <a href="../../my-notes.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to My Notes
+            </a>
+            
+            <div class="lecture-header">
+                <h1>Quantum Field Theory Lectures</h1>
+                <p>Comprehensive lecture notes covering fundamental and advanced QFT topics</p>
+            </div>
+            
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-number" id="total-lectures">0</div>
+                    <div class="stat-label">Total Lectures</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number"><i class="fas fa-book-open"></i></div>
+                    <div class="stat-label">PDF Format</div>
+                </div>
+            </div>
+            
+            <div class="search-filter-section">
+                <input type="text" id="lectureSearch" class="lecture-search" placeholder="🔍 Search lectures...">
+            </div>
+            
+            <div class="lectures-grid" id="lectures-list"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <span class="footer-title">Santanu Pradhan</span>
+            <p>Copyright &copy; by Santanu | All Rights Reserved.</p>
+        </div>
+        <div class="footer-right">
+            <p>You are visitor number:<span id="visitor-count"><img src="https://hitwebcounter.com/counter/counter.php?page=16842525&style=0025&nbdigits=5&type=page&initCount=5000" alt="Visit counter For Websites" border="0"></span></p>
+        </div>
+    </footer>
+
+    <script src="../../../script.js" charset="utf-8" defer></script>
+    <script src="../../script2.js" charset="utf-8" defer></script>
+    <script src="../../script3.js" charset="utf-8" defer></script>
+    
+    <script>
+        const files = [
+            'Lecture1.pdf',
+            'Lecture2.pdf',
+            'Lecture3.pdf',
+            'Lecture4.pdf',
+            'Lecture5.pdf',
+            'Lecture6.pdf',
+            'Lecture7.pdf',
+            'Lecture8.pdf',
+            'Lecture9_10.pdf',
+            'Lecture11.pdf',
+            'Lecture12+13.pdf',
+            'Lecture14.pdf',
+            'Lecture15.pdf',
+            'Lecture16.pdf',
+            'Lecture17.pdf',
+            'Lecture18.pdf',
+            'Lecture19.pdf',
+            'Lecture20.pdf',
+        ];
+
+        const lecturesList = document.getElementById('lectures-list');
+        const searchInput = document.getElementById('lectureSearch');
+        const totalLectures = document.getElementById('total-lectures');
+        
+        totalLectures.textContent = files.length;
+
+        function createLectureCard(filename) {
+            const displayName = filename.replace('.pdf', '').replace(/_/g, ' & ').replace(/\+/g, ' & ');
+            const lectureNum = displayName.match(/\d+/g)?.join(', ') || '?';
+            
+            const card = document.createElement('div');
+            card.className = 'lecture-card';
+            card.innerHTML = `
+                <i class="fas fa-file-pdf lecture-icon"></i>
+                <div class="lecture-number">Lecture ${lectureNum}</div>
+                <a href="${filename}" target="_blank" rel="noopener noreferrer">${displayName}</a>
+                <div class="lecture-meta">
+                    <span><i class="fas fa-file-alt"></i> PDF</span>
+                    <span><i class="fas fa-download"></i> Download</span>
+                </div>
+            `;
+            return card;
+        }
+
+        function renderLectures(filteredFiles = files) {
+            lecturesList.innerHTML = '';
+            filteredFiles.forEach(file => {
+                lecturesList.appendChild(createLectureCard(file));
+            });
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const filtered = files.filter(f => f.toLowerCase().includes(query));
+            renderLectures(filtered);
+        });
+
+        renderLectures();
+    </script>
 </body>
 </html>
